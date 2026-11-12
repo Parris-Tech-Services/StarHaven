@@ -269,17 +269,17 @@ const nodes = {
   start: {
     text: `The hyperdrive whines down to silence.\n\nYour battered YT-1300 freighter drifts out of lightspeed into the shadow of an asteroid field. Ahead, half-hidden in rock and sensor-baffling debris, glows StarHaven Station — a patchwork of salvaged modules, stolen Imperial steel, and stubborn Rebellion hope.\n\nYour comm crackles. The voice of Rebel Intelligence cuts through the static:\n\n"Welcome to StarHaven, operative. We have three situations demanding immediate attention. The Empire is getting closer every hour. Choose your mission — and choose wisely."\n\nYou patch into the station's encrypted network and pull up the dossiers. The weight of the galaxy rests in your hands.\n\nWhat is your name, operative?`,
     choices: [
-      { text: '[ Enter name: Kira Voss ]', effect: () => { state.name = 'Kira Voss'; }, next: 'mission_select' },
+      { text: '[ Enter name: Nik Tenner ]', effect: () => { state.name = 'Nik Tenner'; }, next: 'mission_select' },
       { text: '[ Enter name: Dax Merro ]', effect: () => { state.name = 'Dax Merro'; }, next: 'mission_select' },
       { text: '[ Enter name: Sera Nox ]', effect: () => { state.name = 'Sera Nox'; }, next: 'mission_select' },
     ]
   },
 
   mission_select: {
-    text: `Three holographic briefings flicker in front of you. Your fingers hover over the controls.\n\nMISSION ALPHA — RESCUE: Master Orin Kael, a captured Jedi Knight, is being held in StarHaven's lower detention block. Imperial Inquisitors are en route. If they take him, he's gone forever.\n\nMISSION BETA — INFILTRATION: An Imperial data courier landed an hour ago. She's carrying stolen Rebel fleet coordinates. If the Empire transmits them, the Rebellion loses a dozen ships before dawn.\n\nMISSION GAMMA — NEGOTIATION: Slugga the Hutt controls the only hyperspace route out of this sector. He's threatening to sell the station's location to the highest bidder — and the Empire is already sending an envoy.\n\nThe holo-display pulses, waiting.`,
+    text: `Three holographic briefings flicker in front of you. Your fingers hover over the controls.\n\nMISSION ALPHA — RESCUE: Master Havel Draw, a captured Jedi Knight, is being held in StarHaven's lower detention block. Imperial Inquisitors are en route. If they take him, he's gone forever.\n\nMISSION BETA — INFILTRATION: An Imperial data courier landed an hour ago. She's carrying stolen Rebel fleet coordinates. If the Empire transmits them, the Rebellion loses a dozen ships before dawn.\n\nMISSION GAMMA — NEGOTIATION: Slugga the Hutt controls the only hyperspace route out of this sector. He's threatening to sell the station's location to the highest bidder — and the Empire is already sending an envoy.\n\nThe holo-display pulses, waiting.`,
     onEnter: () => { updateStats(); },
     choices: [
-      { text: '[ALPHA] Rescue Jedi Master Orin Kael from the detention block.', effect: () => { state.mission = 'Rescue'; }, next: 'rescue_start' },
+      { text: '[ALPHA] Rescue Jedi Master Havel Draw from the detention block.', effect: () => { state.mission = 'Rescue'; }, next: 'rescue_start' },
       { text: '[BETA] Steal the Imperial data core before it can be transmitted.', effect: () => { state.mission = 'Infiltration'; }, next: 'infiltrate_start' },
       { text: '[GAMMA] Negotiate — or strong-arm — Slugga the Hutt.', effect: () => { state.mission = 'Negotiation'; }, next: 'hutt_start' },
     ]
@@ -288,7 +288,7 @@ const nodes = {
   // ── RESCUE BRANCH ──────────────────────────────────────────────────────────
 
   rescue_start: {
-    text: `You descend into the guts of StarHaven. The lower decks smell of recycled air and old fear. Emergency lighting paints everything in crimson.\n\nA Rebel guard — young, nervous — meets you at the blast door.\n\n"Glad you're here. Master Kael is two levels down. Problem is, the Inquisitor's advance scout — a red-armored ISB agent — arrived twenty minutes ago. She's already in the detention corridor. She doesn't know exactly which cell he's in yet. We have a window, but it's closing fast."\n\nHe hands you a keycard and a floor map. You study the routes.\n\nThere's a direct path — fast, but through the main corridor where the ISB agent is prowling. Or a maintenance shaft that winds around — slower, but unseen. There's also a third option: a station intercom override that could create a diversion, but it'll alert everyone on the level.`,
+    text: `You descend into the guts of StarHaven. The lower decks smell of recycled air and old fear. Emergency lighting paints everything in crimson.\n\nA Rebel guard — young, nervous — meets you at the blast door.\n\n"Glad you're here. Master Draw is two levels down. Problem is, the Inquisitor's advance scout — a red-armored ISB agent — arrived twenty minutes ago. She's already in the detention corridor. She doesn't know exactly which cell he's in yet. We have a window, but it's closing fast."\n\nHe hands you a keycard and a floor map. You study the routes.\n\nThere's a direct path — fast, but through the main corridor where the ISB agent is prowling. Or a maintenance shaft that winds around — slower, but unseen. There's also a third option: a station intercom override that could create a diversion, but it'll alert everyone on the level.`,
     choices: [
       { text: 'Take the direct route. Speed is everything.', effect: () => { state.hp -= 15; log('You took a blaster graze from the ISB scout. -15 HP'); }, next: 'rescue_direct' },
       { text: 'Crawl through the maintenance shaft. Stay invisible.', next: 'rescue_stealth' },
@@ -297,7 +297,7 @@ const nodes = {
   },
 
   rescue_direct: {
-    text: `You move fast, head low, trusting speed over caution.\n\nThe ISB agent spots you at twenty meters. Red armor, cold eyes. She reaches for her comlink — you're faster. A stunning blast catches her mid-reach. She crumples.\n\nYou're bleeding from a ricochet that grazed your shoulder, but you're moving. Cell block D. Third door on the left.\n\nThe man inside looks worse than you expected. Orin Kael — once a formidable Jedi Knight — sits against the wall, wrists in Force-suppressor cuffs, eyes sunken but sharp. He looks up at you.\n\n"Rebel Intelligence sent one person?" A dry, tired smile. "They must be desperate. Or they trust you a great deal."\n\nThe suppressor cuffs are magnetically sealed. You have the keycard — but the panel is damaged. You'll need to improvise.`,
+    text: `You move fast, head low, trusting speed over caution.\n\nThe ISB agent spots you at twenty meters. Red armor, cold eyes. She reaches for her comlink — you're faster. A stunning blast catches her mid-reach. She crumples.\n\nYou're bleeding from a ricochet that grazed your shoulder, but you're moving. Cell block D. Third door on the left.\n\nThe man inside looks worse than you expected. Havel Draw — once a formidable Jedi Knight — sits against the wall, wrists in Force-suppressor cuffs, eyes sunken but sharp. He looks up at you.\n\n"Rebel Intelligence sent one person?" A dry, tired smile. "They must be desperate. Or they trust you a great deal."\n\nThe suppressor cuffs are magnetically sealed. You have the keycard — but the panel is damaged. You'll need to improvise.`,
     choices: [
       { text: 'Short-circuit the panel with your field kit. Technical approach.', next: 'rescue_free_tech' },
       { text: 'Shoot the cuffs off. Messy, but fast.', effect: () => { state.hp -= 10; log('Blowback from the cuffs. -10 HP'); }, next: 'rescue_free_force' },
@@ -305,29 +305,29 @@ const nodes = {
   },
 
   rescue_stealth: {
-    text: `The maintenance shaft is barely a meter wide. You move in the dark, palms against cold metal, navigating by memory of the floor map.\n\nYou hear the ISB agent's footsteps directly below you. She's methodical. Professional. You hold your breath for a full thirty seconds as she pauses beneath the grate.\n\nThen she moves on.\n\nYou drop into cell block D without a sound.\n\nOrin Kael is sitting cross-legged in the center of his cell, eyes closed. He doesn't look up when you approach, but he speaks:\n\n"The one who moves in silence. Good. The Inquisitors teach their scouts to listen for running feet. You were wise to crawl."\n\nHis eyes open. They hold a quiet intensity — a Jedi who has not lost himself, despite everything.\n\n"The cuffs suppress the Force but not patience. I've been studying the panel. Third contact array — it's corroded. One clean spark will trip the release."`,
+    text: `The maintenance shaft is barely a meter wide. You move in the dark, palms against cold metal, navigating by memory of the floor map.\n\nYou hear the ISB agent's footsteps directly below you. She's methodical. Professional. You hold your breath for a full thirty seconds as she pauses beneath the grate.\n\nThen she moves on.\n\nYou drop into cell block D without a sound.\n\nHavel Draw is sitting cross-legged in the center of his cell, eyes closed. He doesn't look up when you approach, but he speaks:\n\n"The one who moves in silence. Good. The Inquisitors teach their scouts to listen for running feet. You were wise to crawl."\n\nHis eyes open. They hold a quiet intensity — a Jedi who has not lost himself, despite everything.\n\n"The cuffs suppress the Force but not patience. I've been studying the panel. Third contact array — it's corroded. One clean spark will trip the release."`,
     choices: [
       { text: 'Follow his instructions. Precise spark to the panel.', next: 'rescue_free_tech' },
-      { text: '"Can you fight if I free you, Master Kael?"', next: 'rescue_kael_talk' },
+      { text: '"Can you fight if I free you, Master Draw?"', next: 'rescue_kael_talk' },
     ]
   },
 
   rescue_diversion: {
-    text: `You splice into the intercom override. A few seconds of work, and then — every alarm on the level screams at once. Fire suppression activates. Emergency bulkheads begin to cycle.\n\nBeautiful, controlled chaos.\n\nThe ISB agent sprints toward the emergency board. You sprint toward cell block D.\n\nOrin Kael is already standing when you arrive, as though he expected you at this exact moment.\n\n"A diversion," he says. Not a question. "Bold. The Force flows through improvisation as readily as discipline." He tilts his head toward the control panel. "I've had time to study the lock. Shall we?"\n\nThe two of you work in efficient silence. He narrates the circuitry from memory; you execute.`,
+    text: `You splice into the intercom override. A few seconds of work, and then — every alarm on the level screams at once. Fire suppression activates. Emergency bulkheads begin to cycle.\n\nBeautiful, controlled chaos.\n\nThe ISB agent sprints toward the emergency board. You sprint toward cell block D.\n\nHavel Draw is already standing when you arrive, as though he expected you at this exact moment.\n\n"A diversion," he says. Not a question. "Bold. The Force flows through improvisation as readily as discipline." He tilts his head toward the control panel. "I've had time to study the lock. Shall we?"\n\nThe two of you work in efficient silence. He narrates the circuitry from memory; you execute.`,
     choices: [
       { text: 'Free him and move immediately — the window is closing.', next: 'rescue_free_tech' },
     ]
   },
 
   rescue_kael_talk: {
-    text: `"Can I fight?" Kael repeats the question, and something lights in his eyes — not anger, something older and quieter.\n\n"I was a Jedi Knight during the Clone Wars. I trained under Master Shaak Ti. I have faced Sith Lords and survived." He pauses. "But the honest answer is: not at full strength. These cuffs have held me for three days. I am tired, hungry, and the Force feels... distant. Like hearing music through a wall."\n\nHe meets your eyes.\n\n"But I will not leave you to face the Empire alone. Free me. Whatever strength I have is yours."\n\nThe moment costs you thirty seconds you can't afford. But something about his honesty steadies you.`,
+    text: `"Can I fight?" Draw repeats the question, and something lights in his eyes — not anger, something older and quieter.\n\n"I was a Jedi Knight during the Clone Wars. I trained under Master Shaak Ti. I have faced Sith Lords and survived." He pauses. "But the honest answer is: not at full strength. These cuffs have held me for three days. I am tired, hungry, and the Force feels... distant. Like hearing music through a wall."\n\nHe meets your eyes.\n\n"But I will not leave you to face the Empire alone. Free me. Whatever strength I have is yours."\n\nThe moment costs you thirty seconds you can't afford. But something about his honesty steadies you.`,
     choices: [
       { text: 'Proceed to free him.', effect: () => { state.alignment++; }, next: 'rescue_free_tech' },
     ]
   },
 
   rescue_free_tech: {
-    text: `The panel sparks, clicks, and the suppressor cuffs fall open with a satisfying clunk.\n\nOrin Kael rises slowly. He flexes his hands. Breathes. Then the air around him shifts — barely perceptible, like a change in air pressure before a storm.\n\n"The Force returns," he murmurs. "Like an old friend."\n\nAlarms are intensifying. The main Inquisitor's shuttle has just docked — the guard's voice crackles over your earpiece: "They're here. You have maybe four minutes before they reach the detention block."\n\nKael looks at you. "You've done what needed doing. Now: how do we get out?"`,
+    text: `The panel sparks, clicks, and the suppressor cuffs fall open with a satisfying clunk.\n\nHavel Draw rises slowly. He flexes his hands. Breathes. Then the air around him shifts — barely perceptible, like a change in air pressure before a storm.\n\n"The Force returns," he murmurs. "Like an old friend."\n\nAlarms are intensifying. The main Inquisitor's shuttle has just docked — the guard's voice crackles over your earpiece: "They're here. You have maybe four minutes before they reach the detention block."\n\nDraw looks at you. "You've done what needed doing. Now: how do we get out?"`,
     choices: [
       { text: 'Fight through to the docking bay. Blasters and lightsaber.', effect: () => { state.alignment--; state.hp -= 20; log('Firefight. -20 HP'); }, next: 'rescue_fight_out' },
       { text: 'Sneak through the cargo tunnels. Trust stealth over force.', effect: () => { state.alignment++; }, next: 'rescue_sneak_out' },
@@ -335,15 +335,15 @@ const nodes = {
   },
 
   rescue_free_force: {
-    text: `The blast shears the cuff housing. Kael yanks his hands free, hissing through his teeth.\n\n"Effective," he says, examining his singed wrists. "Inelegant. But effective."\n\nHe stands. The cell feels smaller with him upright. Something about Orin Kael takes up more space than his physical form should allow.\n\nAlarms outside. Time is evaporating.`,
+    text: `The blast shears the cuff housing. Draw yanks his hands free, hissing through his teeth.\n\n"Effective," he says, examining his singed wrists. "Inelegant. But effective."\n\nHe stands. The cell feels smaller with him upright. Something about Havel Draw takes up more space than his physical form should allow.\n\nAlarms outside. Time is evaporating.`,
     choices: [
-      { text: 'Fight through to the docking bay — Kael can use the Force.', effect: () => { state.alignment--; state.hp -= 20; log('Firefight. -20 HP'); }, next: 'rescue_fight_out' },
-      { text: 'Move quietly. Kael\'s Force sense can guide you around patrols.', effect: () => { state.alignment++; }, next: 'rescue_sneak_out' },
+      { text: 'Fight through to the docking bay — Draw can use the Force.', effect: () => { state.alignment--; state.hp -= 20; log('Firefight. -20 HP'); }, next: 'rescue_fight_out' },
+      { text: 'Move quietly. Draw\'s Force sense can guide you around patrols.', effect: () => { state.alignment++; }, next: 'rescue_sneak_out' },
     ]
   },
 
   rescue_fight_out: {
-    text: `You burst into the corridor side by side. Kael doesn't have a lightsaber — they took it when they captured him — but he doesn't need one.\n\nA stormtrooper squad rounds the corner. Kael raises his hand. Three of them fly backward into the bulkhead like they weighed nothing. Your blaster handles the rest.\n\nThe Inquisitor appears at the far end — tall, black-armored, double-bladed saber igniting with a crimson hiss. Kael steps forward, calm as stone water.\n\n"Take the operative and run," he tells you. "I will hold her."\n\nYou want to argue. His look stops you.\n\nYou run.`,
+    text: `You burst into the corridor side by side. Draw doesn't have a lightsaber — they took it when they captured him — but he doesn't need one.\n\nA stormtrooper squad rounds the corner. Draw raises his hand. Three of them fly backward into the bulkhead like they weighed nothing. Your blaster handles the rest.\n\nThe Inquisitor appears at the far end — tall, black-armored, double-bladed saber igniting with a crimson hiss. Draw steps forward, calm as stone water.\n\n"Take the operative and run," he tells you. "I will hold her."\n\nYou want to argue. His look stops you.\n\nYou run.`,
     choices: [
       { text: 'Trust him. Get to the ship.', next: 'rescue_ending_escape' },
       { text: 'I\'m not leaving without him. Stand and fight.', effect: () => { state.hp -= 30; state.alignment--; log('You take heavy wounds in the fight. -30 HP'); }, next: 'rescue_ending_fight' },
@@ -351,24 +351,24 @@ const nodes = {
   },
 
   rescue_sneak_out: {
-    text: `Kael closes his eyes. Breathes. When he opens them, he moves with quiet certainty.\n\n"Three guards — left corridor. Two more by the cargo lift. One Inquisitor scout approaching from the east." He looks at you. "Follow my lead."\n\nFor the next six minutes, Orin Kael navigates StarHaven's underbelly as if he built it himself. He senses threats before they materialize, redirects your path without a word, pauses when you must pause.\n\nNot a single shot fired.\n\nYou emerge at the docking bay through a recycling hatch, covered in grime, breathing hard — but whole.`,
+    text: `Draw closes his eyes. Breathes. When he opens them, he moves with quiet certainty.\n\n"Three guards — left corridor. Two more by the cargo lift. One Inquisitor scout approaching from the east." He looks at you. "Follow my lead."\n\nFor the next six minutes, Havel Draw navigates StarHaven's underbelly as if he built it himself. He senses threats before they materialize, redirects your path without a word, pauses when you must pause.\n\nNot a single shot fired.\n\nYou emerge at the docking bay through a recycling hatch, covered in grime, breathing hard — but whole.`,
     choices: [
       { text: 'Get to your ship and jump to hyperspace.', next: 'rescue_ending_clean' },
     ]
   },
 
   rescue_ending_escape: {
-    text: `Your ship lifts off from the docking bay as alarms scream across the station. You punch the engines to full — just as a green blade and a red blade clash in a display window below.\n\nThen starlines. Hyperspace.\n\nSilence.\n\nThree hours later, you receive a coded transmission — Orin Kael's frequency. Static. Then his voice, tired but steady:\n\n"The Inquisitor will trouble no one further. I've borrowed a transport from the station's emergency reserve. I'll find my way to the fleet."\n\nA pause.\n\n"You freed me. I won't forget that. May the Force be with you, operative."\n\nThe transmission ends. You lean back in your seat. The galaxy feels, for just a moment, slightly less dark.\n\n══════════════════════════════\nENDING: The Jedi's Debt\nMission Status: SUCCESS\nAlignment: Light Side\n══════════════════════════════`,
+    text: `Your ship lifts off from the docking bay as alarms scream across the station. You punch the engines to full — just as a green blade and a red blade clash in a display window below.\n\nThen starlines. Hyperspace.\n\nSilence.\n\nThree hours later, you receive a coded transmission — Havel Draw's frequency. Static. Then his voice, tired but steady:\n\n"The Inquisitor will trouble no one further. I've borrowed a transport from the station's emergency reserve. I'll find my way to the fleet."\n\nA pause.\n\n"You freed me. I won't forget that. May the Force be with you, operative."\n\nThe transmission ends. You lean back in your seat. The galaxy feels, for just a moment, slightly less dark.\n\n══════════════════════════════\nENDING: The Jedi's Debt\nMission Status: SUCCESS\nAlignment: Light Side\n══════════════════════════════`,
     choices: [{ text: '[ Play Again ]', effect: () => resetGame(), next: 'start' }]
   },
 
   rescue_ending_fight: {
-    text: `You stand beside Kael and face the Inquisitor together.\n\nIt is the hardest fight of your life. She is fast — inhumanly fast — and her twin blades are everywhere at once. You take burns to your side, your arm. Kael fights with raw will, channeling the Force without a blade, throwing debris, pushing her off-balance.\n\nIn the end, she retreats. Wounded. Not defeated — but gone.\n\nKael looks at you. His face is unreadable.\n\n"You stayed."\n\n"You needed backup."\n\n"Jedi do not need—" He stops himself. Something softens. "...Thank you."\n\nYou get off the station by the skin of your teeth. The jump to hyperspace feels earned.\n\n══════════════════════════════\nENDING: No Jedi Left Behind\nMission Status: COSTLY VICTORY\nAlignment: Grey\n══════════════════════════════`,
+    text: `You stand beside Draw and face the Inquisitor together.\n\nIt is the hardest fight of your life. She is fast — inhumanly fast — and her twin blades are everywhere at once. You take burns to your side, your arm. Draw fights with raw will, channeling the Force without a blade, throwing debris, pushing her off-balance.\n\nIn the end, she retreats. Wounded. Not defeated — but gone.\n\nDraw looks at you. His face is unreadable.\n\n"You stayed."\n\n"You needed backup."\n\n"Jedi do not need—" He stops himself. Something softens. "...Thank you."\n\nYou get off the station by the skin of your teeth. The jump to hyperspace feels earned.\n\n══════════════════════════════\nENDING: No Jedi Left Behind\nMission Status: COSTLY VICTORY\nAlignment: Grey\n══════════════════════════════`,
     choices: [{ text: '[ Play Again ]', effect: () => resetGame(), next: 'start' }]
   },
 
   rescue_ending_clean: {
-    text: `Your ship lifts cleanly from the bay. No pursuit — they don't even know which direction you went.\n\nOrin Kael sits in the co-pilot chair, watching the stars. He seems to be relearning them, one by one.\n\n"You didn't have to save me," he says quietly. "The mission risked more than one life for one person."\n\n"The Rebellion doesn't leave Jedi behind."\n\nHe nods, slowly. "Then perhaps the Rebellion deserves to win."\n\nHe closes his eyes. The Force hums around him like a quiet engine coming back to life. You set the coordinates for Rebel Command and push the hyperdrive lever forward.\n\nThe stars stretch into light.\n\n══════════════════════════════\nENDING: Shadow and Starlight\nMission Status: PERFECT EXTRACTION\nAlignment: Light Side\n══════════════════════════════`,
+    text: `Your ship lifts cleanly from the bay. No pursuit — they don't even know which direction you went.\n\nHavel Draw sits in the co-pilot chair, watching the stars. He seems to be relearning them, one by one.\n\n"You didn't have to save me," he says quietly. "The mission risked more than one life for one person."\n\n"The Rebellion doesn't leave Jedi behind."\n\nHe nods, slowly. "Then perhaps the Rebellion deserves to win."\n\nHe closes his eyes. The Force hums around him like a quiet engine coming back to life. You set the coordinates for Rebel Command and push the hyperdrive lever forward.\n\nThe stars stretch into light.\n\n══════════════════════════════\nENDING: Shadow and Starlight\nMission Status: PERFECT EXTRACTION\nAlignment: Light Side\n══════════════════════════════`,
     choices: [{ text: '[ Play Again ]', effect: () => resetGame(), next: 'start' }]
   },
 
