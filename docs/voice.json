@@ -1,0 +1,8 @@
+{
+  "name": "StarHaven (DRAFT, inferred from the game's own tone for the owner to approve)",
+  "given": { "on": ["","","d","h","j","k","m","n","r","s","t","v","w"], "v": ["a","e","i","o","u"], "co": ["","n","r","l","k","s","th"], "syllables": [1,2,2], "length": [3,6] },
+  "surname": { "mode": "word", "words": ["Ballast","Sluice","Rivet","Tarrow","Gantry","Cobalt","Vent","Halyard","Draw","Ostrel","Pike","Tenner","Brace","Marrow","Quill","Stray"] },
+  "avoid": ["Kael","Kira","Voss","Orin","Elara","Mira","Thorne","Seraphina","Lyra"],
+  "max_surname_repeats": 1,
+  "reserved": ["Slugga"]
+}
